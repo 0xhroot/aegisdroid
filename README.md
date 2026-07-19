@@ -113,11 +113,11 @@
 
 | Terminal UI | Interactive Report | Threat Timeline |
 |:-----------:|:------------------:|:---------------:|
-| ![Terminal](https://via.placeholder.com/400x250/0a0e17/00ff88?text=AegisDroid+Terminal+UI) | ![Report](https://via.placeholder.com/400x250/0a0e17/58a6ff?text=Interactive+HTML+Report) | ![Timeline](https://via.placeholder.com/400x250/0a0e17/ff8800?text=Forensic+Timeline) |
+| ![Terminal](screenshot/terminal-ui.png) | ![Report](screenshot/html-report.png) | ![Timeline](screenshot/threat-timeline.png) |
 
-| Threat Viewer | Plugin Manager | Device Profile |
-|:-------------:|:--------------:|:--------------:|
-| ![Threats](https://via.placeholder.com/400x250/0a0e17/ff4444?text=Threat+Correlation+View) | ![Plugins](https://via.placeholder.com/400x250/0a0e17/ffaa00?text=Plugin+Manager) | ![Device](https://via.placeholder.com/400x250/0a0e17/3DDC84?text=Complete+Device+Profile) |
+| Threat Viewer | Root Detection |
+|:-------------:|:--------------:|
+| ![Threats](screenshot/threats-viewer.png) | ![Root](screenshot/Root-detection.png) |
 
 </div>
 
