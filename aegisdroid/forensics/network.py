@@ -239,7 +239,7 @@ class NetworkAnalyzer:
         return graph
 
     async def detect_network_findings(self) -> list[Finding]:
-        findings = []
+        findings: list[Finding] = []
         if not self._adb:
             return findings
 

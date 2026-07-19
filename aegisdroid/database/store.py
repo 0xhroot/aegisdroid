@@ -218,7 +218,8 @@ class Database:
         )
         row = await cursor.fetchone()
         if row:
-            return json.loads(row[0])
+            result: dict[str, Any] = json.loads(row[0])
+            return result
         return None
 
     async def save_timeline_event(self, event: TimelineEvent) -> None:

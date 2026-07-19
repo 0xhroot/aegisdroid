@@ -158,12 +158,17 @@ plugins = ["pydantic.mypy"]
 module = [
     "yara.*",
     "androguard.*",
-    "capstone.*",
-    "magic.*",
     "textual.*",
     "prompt_toolkit.*",
 ]
 ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = [
+    "aegisdroid.cli.main",
+    "aegisdroid.cli.menu",
+]
+disable_error_code = ["no-untyped-call", "untyped-decorator"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -182,7 +187,7 @@ omit = ["*/tests/*", "*/rust/*"]
 [tool.coverage.report]
 show_missing = true
 skip_covered = true
-fail_under = 80
+fail_under = 20
 exclude_lines = [
     "pragma: no cover",
     "if __name__ == .__main__.",

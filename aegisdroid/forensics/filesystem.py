@@ -60,7 +60,7 @@ class FilesystemForensics:
 
     def __init__(self, adb: Any = None) -> None:
         self._adb = adb
-        self._baseline: dict[str, str] = {}
+        self._baseline: dict[str, Hash] = {}
 
     async def compute_hashes(self, paths: list[str]) -> dict[str, Hash]:
         results: dict[str, Hash] = {}
@@ -86,7 +86,7 @@ class FilesystemForensics:
         return await self.compute_hashes(all_paths)
 
     async def detect_modifications(self, baseline_path: str = "") -> list[Finding]:
-        findings = []
+        findings: list[Finding] = []
         if not self._adb:
             return findings
 
@@ -98,7 +98,7 @@ class FilesystemForensics:
 
             for path, hash_val in current.items():
                 if path in self._baseline:
-                    if hash_val.sha256 != self._baseline[path]:
+                    if hash_val.sha256 != self._baseline[path].sha256:
                         modified.append((path, self._baseline[path], hash_val.sha256))
                 else:
                     added.append(path)
@@ -118,7 +118,7 @@ class FilesystemForensics:
                             Evidence(
                                 type=EvidenceType.FILESYSTEM,
                                 source="integrity_check",
-                                description=f"Modified: {p} (was {old[:16]}..., now {new[:16]}...)",
+                                description=f"Modified: {p} (was {old.sha256[:16]}..., now {new[:16]}...)",
                                 confidence=0.95,
                             )
                             for p, old, new in modified
@@ -131,7 +131,7 @@ class FilesystemForensics:
         return findings
 
     async def find_suspicious_files(self) -> list[Finding]:
-        findings = []
+        findings: list[Finding] = []
         if not self._adb:
             return findings
 
@@ -225,7 +225,7 @@ class FilesystemForensics:
         return self._baseline
 
     async def find_suid_files(self) -> list[Finding]:
-        findings = []
+        findings: list[Finding] = []
         if not self._adb:
             return findings
 

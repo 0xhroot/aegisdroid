@@ -155,14 +155,14 @@ def print_menu() -> None:
 def get_choice() -> str:
     try:
         choice = console.input(f"  [bold green]Choose option (1-{len(ALL_OPTIONS)}): [/bold green]")
-        return choice.strip()
+        return str(choice.strip())
     except (EOFError, KeyboardInterrupt):
         return str(len(ALL_OPTIONS))
 
 
 def get_input(prompt: str) -> str:
     try:
-        return console.input(f"  [cyan]{prompt}: [/cyan]").strip()
+        return str(console.input(f"  [cyan]{prompt}: [/cyan]").strip())
     except (EOFError, KeyboardInterrupt):
         return ""
 
@@ -172,7 +172,7 @@ def press_enter() -> None:
         console.input("\n  [dim]Press Enter to continue...[/dim]")
 
 
-def _run_async(coro):  # type: ignore
+def _run_async(coro):  # type: ignore[no-untyped-def]
     try:
         loop = asyncio.get_event_loop()
         if loop.is_running():
@@ -188,7 +188,7 @@ def _run_async(coro):  # type: ignore
         return asyncio.run(coro)
 
 
-def _connect_adb(config: Any = None) -> Any:  # type: ignore
+def _connect_adb(config: Any = None) -> Any:
     """Helper to get a connected ADB adapter, or None."""
     from aegisdroid.adb.adapter import ADBAdapter
     from aegisdroid.core.config import load_config
@@ -706,9 +706,10 @@ def action_yara_scan() -> None:
 
 
 def action_monitor() -> None:
-    interval = get_input("Poll interval in seconds (default: 5)")
+    interval_input = get_input("Poll interval in seconds (default: 5)")
+    interval: float = 5.0
     try:
-        interval = float(interval) if interval else 5.0
+        interval = float(interval_input) if interval_input else 5.0
     except ValueError:
         interval = 5.0
 

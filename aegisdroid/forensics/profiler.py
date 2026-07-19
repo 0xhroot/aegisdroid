@@ -403,4 +403,5 @@ class DeviceProfiler:
         return props
 
     async def _prop(self, key: str) -> str:
-        return (await self._adb.shell(f"getprop {key} 2>/dev/null")).strip()
+        result: str = (await self._adb.shell(f"getprop {key} 2>/dev/null")).strip()
+        return result

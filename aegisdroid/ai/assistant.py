@@ -93,8 +93,8 @@ class AIAssistant:
                     },
                 )
                 if resp.status_code == 200:
-                    data = resp.json()
-                    return data.get("response", "No response")
+                    data: dict[str, Any] = resp.json()
+                    return str(data.get("response", "No response"))
                 return f"Ollama error: {resp.status_code}"
         except Exception as e:
             logger.exception("Ollama query failed: %s", e)
@@ -125,8 +125,8 @@ class AIAssistant:
                     },
                 )
                 if resp.status_code == 200:
-                    data = resp.json()
-                    return data["choices"][0]["message"]["content"]
+                    data: dict[str, Any] = resp.json()
+                    return str(data["choices"][0]["message"]["content"])
                 return f"OpenAI error: {resp.status_code}"
         except Exception as e:
             logger.exception("OpenAI query failed: %s", e)

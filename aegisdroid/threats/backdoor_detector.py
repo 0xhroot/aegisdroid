@@ -298,7 +298,7 @@ class BackdoorDetector:
         return findings
 
     async def _check_hidden_processes(self) -> list[Finding]:
-        findings = []
+        findings: list[Finding] = []
         ps = await self._adb.shell("ps -A -o NAME 2>/dev/null | grep -v '^NAME'")
         if not ps.strip():
             return findings

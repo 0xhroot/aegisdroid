@@ -125,7 +125,8 @@ class PluginSDK:
             plugin_class = getattr(mod, "Plugin", None)
             if plugin_class and hasattr(plugin_class, "metadata"):
                 inst = plugin_class()
-                return inst.metadata
+                meta: PluginMetadata | None = inst.metadata
+                return meta
         except Exception:
             pass
         finally:

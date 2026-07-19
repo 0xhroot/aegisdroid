@@ -286,7 +286,7 @@ class APKAnalyzer(APKAnalysisPort):
         return libs
 
     async def find_strings(self, apk_path: str, pattern: str) -> list[str]:
-        matches = []
+        matches: list[str] = []
         try:
             with zipfile.ZipFile(apk_path) as zf:
                 for name in zf.namelist():

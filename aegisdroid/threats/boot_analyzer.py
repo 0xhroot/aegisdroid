@@ -25,7 +25,7 @@ class BootAnalyzer:
     async def analyze_boot(self) -> dict[str, Any]:
         if not self._adb:
             return {}
-        result = {}
+        result: dict[str, Any] = {}
         result["avb"] = await self.check_avb()
         result["dm_verity"] = await self.check_dm_verity()
         result["vbmeta"] = await self.analyze_vbmeta()
@@ -117,7 +117,7 @@ class BootAnalyzer:
         return result
 
     async def detect_boot_findings(self) -> list[Finding]:
-        findings = []
+        findings: list[Finding] = []
         if not self._adb:
             return findings
 
