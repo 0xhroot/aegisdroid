@@ -57,7 +57,7 @@
 │                                                                  │
 │  [$] aegis                                                       │
 │                                                                  │
-│  ┌─ AegisDroid v0.1.0 ──────────────────────────────────────┐    │
+│  ┌─ AegisDroid v1.0.0 ──────────────────────────────────────┐    │
 │  │                                                           │    │
 │  │   1. Quick Scan        11. AI Assistant      ◄            │    │
 │  │   2. Full Scan         12. Search Findings               │    │
@@ -83,10 +83,10 @@
 │  ╰─────────────────────────────────────────────────────────────╯  │
 │                                                                  │
 │  ╭──────────────────────────── Device Info ────────────────────╮  │
-│  │ Model: Xiaomi miel                                         │  │
+│  │ Model: Google Pixel 9                                       │  │
 │  │ Android: 16 (SDK 36)                                       │  │
-│  │ Build: google/frankel_beta/frankel:16/BP41.250916.015.A1  │  │
-│  │ Security Patch: 2025-11-01                                 │  │
+│  │ Build: google/akita/akita:16/BP2A.250605.031.A3            │  │
+│  │ Security Patch: 2025-08-05                                 │  │
 │  │ Rooted: Unknown                                            │  │
 │  ╰─────────────────────────────────────────────────────────────╯  │
 │                                                                  │
@@ -1156,10 +1156,10 @@ export AEGIS_AI_PROVIDER=ollama
 ╰──────────────────────────────────────────────────────────────────╯
 
 ╭────────────────────────── Device Info ───────────────────────────╮
-│ Model: Xiaomi miel                                               │
+│ Model: Google Pixel 9                                               │
 │ Android: 16 (SDK 36)                                             │
-│ Build: google/frankel_beta/frankel:16/BP41.250916.015.A1       │
-│ Security Patch: 2025-11-01                                       │
+│ Build: google/akita/akita:16/BP2A.250605.031.A3                 │
+│ Security Patch: 2025-08-05                                       │
 │ Rooted: Unknown                                                  │
 ╰──────────────────────────────────────────────────────────────────╯
 
