@@ -1,0 +1,30 @@
+# AegisDroid - Development Dependencies
+# Install with: pip install -r requirements-dev.txt
+
+-r requirements.txt
+
+# Testing
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
+pytest-cov>=4.1.0
+pytest-xdist>=3.5.0
+
+# Linting / Formatting
+ruff>=0.4.0
+mypy>=1.8.0
+
+# Pre-commit
+pre-commit>=3.6.0
+
+# Build
+build>=1.0.0
+twine>=5.0.0
+
+# Optional: APK Analysis
+androguard>=4.0
+yara-python>=4.3.0
+capstone>=5.0.0
+
+# Optional: AI Integration
+ollama>=0.4.0
+openai>=1.12.0

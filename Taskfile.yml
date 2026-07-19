@@ -1,0 +1,97 @@
+# https://taskfile.dev
+version: "3"
+
+vars:
+  PYTHON: python3
+  PACKAGE: aegisdroid
+
+tasks:
+  default:
+    desc: Show available tasks
+    cmds:
+      - task --list
+
+  setup:
+    desc: Set up development environment
+    cmds:
+      - python3 -m venv .venv
+      - .venv/bin/pip install --upgrade pip
+      - .venv/bin/pip install -e ".[all]"
+      - .venv/bin/pre-commit install
+    status:
+      - test -d .venv
+
+  install:
+    desc: Install AegisDroid
+    cmds:
+      - pip install -e .
+
+  install-dev:
+    desc: Install with development dependencies
+    cmds:
+      - pip install -e ".[dev]"
+
+  install-all:
+    desc: Install with all optional dependencies
+    cmds:
+      - pip install -e ".[all]"
+
+  lint:
+    desc: Run linter
+    cmds:
+      - ruff check {{.PACKAGE}} tests
+
+  format:
+    desc: Format code
+    cmds:
+      - ruff format {{.PACKAGE}} tests
+      - ruff check --fix {{.PACKAGE}} tests
+
+  typecheck:
+    desc: Run type checker
+    cmds:
+      - mypy {{.PACKAGE}}
+
+  test:
+    desc: Run tests
+    cmds:
+      - pytest tests/ -v
+
+  test-cov:
+    desc: Run tests with coverage
+    cmds:
+      - pytest tests/ --cov={{.PACKAGE}} --cov-report=term-missing --cov-report=html
+
+  clean:
+    desc: Remove build artifacts
+    cmds:
+      - rm -rf build/ dist/ *.egg-info .pytest_cache .mypy_cache .ruff_cache htmlcov .coverage
+      - find . -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
+
+  build:
+    desc: Build distribution
+    cmds:
+      - "{{.PYTHON}} -m build"
+    deps: [clean]
+
+  docker-build:
+    desc: Build Docker image
+    cmds:
+      - docker build -t aegisdroid .
+
+  docker-run:
+    desc: Run Docker container
+    cmds:
+      - docker run -it --rm aegisdroid
+
+  pre-commit:
+    desc: Run pre-commit on all files
+    cmds:
+      - pre-commit run --all-files
+
+  check:
+    desc: Run all checks
+    cmds:
+      - task: lint
+      - task: typecheck
+      - task: test

@@ -1,0 +1,38 @@
+name: Docs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - "README.md"
+  pull_request:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - "README.md"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate Documentation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for broken links
+        run: |
+          # Verify all internal markdown links point to existing files
+          find docs/ -name "*.md" -exec grep -oP '\[.*?\]\((.*?)\)' {} \; | \
+          grep -oP '\((.*?)\)' | tr -d '()' | \
+          grep -v '^http' | grep -v '^#' | \
+          while read link; do
+            if [ ! -f "$link" ] && [ ! -d "$link" ]; then
+              echo "Broken link: $link"
+            fi
+          done
+      - name: Validate Markdown
+        run: |
+          pip install mdformat
+          find docs/ -name "*.md" -exec mdformat --check {} \;

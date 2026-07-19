@@ -1,0 +1,23 @@
+# Code Owners - Defines code ownership for automatic PR reviews
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owners for everything
+* @aegisdroid/maintainers
+
+# Core architecture
+/aegisdroid/core/ @aegisdroid/maintainers
+
+# CLI
+/aegisdroid/cli/ @aegisdroid/maintainers
+
+# Threat detection
+/aegisdroid/threats/ @aegisdroid/maintainers
+
+# Forensics
+/aegisdroid/forensics/ @aegisdroid/maintainers
+
+# Scanner
+/aegisdroid/scanner/ @aegisdroid/maintainers
+
+# CI/CD
+/.github/ @aegisdroid/maintainers

@@ -1,0 +1,37 @@
+# Default AegisDroid Correlation Rules
+# These rules are evaluated by the rule engine against scan results.
+
+- name: accessibility_overlay_combo
+  severity: high
+  title: "Accessibility + Overlay Attack Pattern"
+  description: "App combines accessibility service with overlay permission, common in phishing attacks."
+  category: overlay_attack
+  when:
+    has_finding_category:
+      - accessibility_abuse
+      - overlay_attack
+  confidence: 0.8
+  mitigation: "This pattern is commonly used for overlay phishing attacks targeting banking apps."
+
+- name: dynamic_code_with_network
+  severity: high
+  title: "Dynamic Code Loading with Network Access"
+  description: "App uses dynamic code loading and has network access, enabling remote payload delivery."
+  category: data_exfiltration
+  when:
+    has_finding_category:
+      - dynamic_code_loading
+      - network_anomaly
+  confidence: 0.75
+  mitigation: "Monitor for suspicious network traffic and remote code execution."
+
+- name: excessive_permissions_exported
+  severity: medium
+  title: "Overprivileged App with Exported Components"
+  description: "App has excessive permissions and exported components."
+  category: behavioral_anomaly
+  when:
+    has_finding_category: suspicious_permission
+    min_findings: 3
+  confidence: 0.65
+  mitigation: "Review app permissions and exported components for necessity."

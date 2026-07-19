@@ -1,0 +1,124 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  build:
+    name: Build Release Artifacts
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            platform: linux-x86_64
+          - os: ubuntu-24.04-arm
+            platform: linux-aarch64
+          - os: macos-latest
+            platform: macos-x86_64
+          - os: macos-latest
+            platform: macos-arm64
+          - os: windows-latest
+            platform: windows-x64
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install build tools
+        run: pip install build
+      - name: Build source distribution
+        if: matrix.platform == 'linux-x86_64'
+        run: python -m build --sdist
+      - name: Build wheel
+        run: python -m build --wheel
+      - name: Package release
+        shell: bash
+        run: |
+          VERSION="${GITHUB_REF#refs/tags/v}"
+          PLATFORM="${{ matrix.platform }}"
+
+          if [[ "$PLATFORM" == windows* ]]; then
+            ARCHIVE_NAME="aegisdroid-${VERSION}-${PLATFORM}.zip"
+            7z a "$ARCHIVE_NAME" dist/*.whl
+          else
+            ARCHIVE_NAME="aegisdroid-${VERSION}-${PLATFORM}.tar.gz"
+            tar czf "$ARCHIVE_NAME" -C dist .
+          fi
+
+          echo "ARCHIVE_NAME=$ARCHIVE_NAME" >> $GITHUB_ENV
+      - name: Generate checksums
+        shell: bash
+        run: |
+          if [[ "${{ matrix.platform }}" == "linux-x86_64" ]]; then
+            sha256sum "$ARCHIVE_NAME" > "${ARCHIVE_NAME}.sha256"
+          else
+            shasum -a 256 "$ARCHIVE_NAME" > "${ARCHIVE_NAME}.sha256"
+          fi
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.platform }}
+          path: |
+            ${{ env.ARCHIVE_NAME }}
+            ${{ env.ARCHIVE_NAME }}.sha256
+
+  release:
+    name: Create Release
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          merge-multiple: true
+      - name: Generate release notes
+        id: notes
+        run: |
+          VERSION="${GITHUB_REF#refs/tags/v}"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+          # Find previous tag
+          PREV_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+          if [ -n "$PREV_TAG" ]; then
+            echo "previous_tag=$PREV_TAG" >> $GITHUB_OUTPUT
+          else
+            echo "previous_tag=" >> $GITHUB_OUTPUT
+          fi
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: |
+            artifacts/*
+          body: |
+            ## AegisDroid v${{ steps.notes.outputs.version }}
+
+            ### Installation
+
+            ```bash
+            pip install aegisdroid==${{ steps.notes.outputs.version }}
+            ```
+
+            ### Verify Checksums
+
+            ```bash
+            sha256sum -c aegisdroid-*.tar.gz.sha256
+            ```
+
+            ### Documentation
+
+            See [README.md](https://github.com/aegisdroid/aegisdroid#readme) for usage instructions.
+        draft: false
+        prerelease: false

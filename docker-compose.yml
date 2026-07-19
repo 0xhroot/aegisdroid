@@ -1,0 +1,21 @@
+services:
+  aegisdroid:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aegisdroid
+    volumes:
+      - ./reports:/app/reports
+      - ./rules/packs:/app/rules/packs
+      - aegisdroid-data:/app/data
+    environment:
+      - AEGIS_LOG_LEVEL=INFO
+      - AEGIS_DB_PATH=/app/data/scans.db
+    # USB device passthrough (requires --privileged or device mapping)
+    # devices:
+    #   - /dev/bus/usb:/dev/bus/usb
+    stdin_open: true
+    tty: true
+
+volumes:
+  aegisdroid-data:
