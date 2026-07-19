@@ -10,8 +10,8 @@ This project adheres to the [Contributor Covenant Code of Conduct](CODE_OF_CONDU
 
 ### Reporting Bugs
 
-1. Check [existing issues](https://github.com/aegisdroid/aegisdroid/issues) to avoid duplicates
-2. Open a [bug report](https://github.com/aegisdroid/aegisdroid/issues/new?template=bug_report.md)
+1. Check [existing issues](https://github.com/0xhroot/aegisdroid/issues) to avoid duplicates
+2. Open a [bug report](https://github.com/0xhroot/aegisdroid/issues/new?template=bug_report.md)
 3. Include:
    - AegisDroid version (`aegis --version`)
    - Python version
@@ -23,7 +23,7 @@ This project adheres to the [Contributor Covenant Code of Conduct](CODE_OF_CONDU
 
 ### Suggesting Features
 
-1. Open a [feature request](https://github.com/aegisdroid/aegisdroid/issues/new?template=feature_request.md)
+1. Open a [feature request](https://github.com/0xhroot/aegisdroid/issues/new?template=feature_request.md)
 2. Describe the problem the feature solves
 3. Provide use cases
 4. If possible, sketch the API or interface
@@ -228,8 +228,8 @@ Contributors are recognized in:
 
 ## Getting Help
 
-- Open a [Discussion](https://github.com/aegisdroid/aegisdroid/discussions)
+- Open a [Discussion](https://github.com/0xhroot/aegisdroid/discussions)
 - Check the [README](README.md#troubleshooting) for common issues
-- Review existing [Issues](https://github.com/aegisdroid/aegisdroid/issues)
+- Review existing [Issues](https://github.com/0xhroot/aegisdroid/issues)
 
 Thank you for contributing to AegisDroid!

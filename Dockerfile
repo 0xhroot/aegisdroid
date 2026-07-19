@@ -15,7 +15,7 @@ FROM python:3.12-slim
 
 LABEL maintainer="AegisDroid Contributors"
 LABEL description="Advanced Android Security, Threat Hunting & Digital Forensics Framework"
-LABEL org.opencontainers.image.source="https://github.com/aegisdroid/aegisdroid"
+LABEL org.opencontainers.image.source="https://github.com/0xhroot/aegisdroid"
 LABEL org.opencontainers.image.licenses="Apache-2.0"
 
 ENV PYTHONDONTWRITEBYTECODE=1 \

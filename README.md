@@ -19,7 +19,7 @@
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB.svg?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![Platform](https://img.shields.io/badge/Platform-Android-3DDC84.svg?style=for-the-badge&logo=android)](https://android.com)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg?style=for-the-badge)](#)
-[![CI](https://github.com/aegisdroid/aegisdroid/actions/workflows/ci.yml/badge.svg)](https://github.com/aegisdroid/aegisdroid/actions/workflows/ci.yml)
+[![CI](https://github.com/0xhroot/aegisdroid/actions/workflows/ci.yml/badge.svg)](https://github.com/0xhroot/aegisdroid/actions/workflows/ci.yml)
 [![CLI](https://img.shields.io/badge/CLI-Typer-ff8800.svg?style=for-the-badge)](#cli-commands)
 [![YARA](https://img.shields.io/badge/YARA-Integrated-ffaa00.svg?style=for-the-badge)](#yara-engine)
 [![DFIR](https://img.shields.io/badge/DFIR-Ready-58a6ff.svg?style=for-the-badge)](#digital-forensics)
@@ -472,7 +472,7 @@ AegisDroid/
 sudo pacman -S android-tools python python-pip
 
 # Clone and install
-git clone https://github.com/aegisdroid/aegisdroid.git
+git clone https://github.com/0xhroot/aegisdroid.git
 cd AegisDroid
 python -m venv .venv
 source .venv/bin/activate
@@ -494,7 +494,7 @@ sudo apt update
 sudo apt install -y android-tools-adb python3 python3-pip python3-venv
 
 # Clone and install
-git clone https://github.com/aegisdroid/aegisdroid.git
+git clone https://github.com/0xhroot/aegisdroid.git
 cd AegisDroid
 python3 -m venv .venv
 source .venv/bin/activate
@@ -515,7 +515,7 @@ chmod +x run
 sudo dnf install -y android-tools python3 python3-pip
 
 # Clone and install
-git clone https://github.com/aegisdroid/aegisdroid.git
+git clone https://github.com/0xhroot/aegisdroid.git
 cd AegisDroid
 python3 -m venv .venv
 source .venv/bin/activate
@@ -536,7 +536,7 @@ chmod +x run
 brew install android-platform-tools python
 
 # Clone and install
-git clone https://github.com/aegisdroid/aegisdroid.git
+git clone https://github.com/0xhroot/aegisdroid.git
 cd AegisDroid
 python3 -m venv .venv
 source .venv/bin/activate
@@ -555,7 +555,7 @@ chmod +x run
 ```powershell
 # In WSL2 (Ubuntu recommended)
 sudo apt update && sudo apt install -y android-tools-adb python3 python3-pip python3-venv
-git clone https://github.com/aegisdroid/aegisdroid.git
+git clone https://github.com/0xhroot/aegisdroid.git
 cd AegisDroid
 python3 -m venv .venv
 source .venv/bin/activate
@@ -583,7 +583,7 @@ docker run -it --privileged -v /dev/bus/usb:/dev/bus/usb aegisdroid
 <summary><strong>🛠️ Development</strong></summary>
 
 ```bash
-git clone https://github.com/aegisdroid/aegisdroid.git
+git clone https://github.com/0xhroot/aegisdroid.git
 cd AegisDroid
 python3 -m venv .venv
 source .venv/bin/activate
@@ -1878,8 +1878,8 @@ Unacceptable behavior will result in immediate project ban. Report issues to the
 
 | Channel | Link |
 |---------|------|
-| **Issues** | [GitHub Issues](https://github.com/aegisdroid/aegisdroid/issues) |
-| **Discussions** | [GitHub Discussions](https://github.com/aegisdroid/aegisdroid/discussions) |
+| **Issues** | [GitHub Issues](https://github.com/0xhroot/aegisdroid/issues) |
+| **Discussions** | [GitHub Discussions](https://github.com/0xhroot/aegisdroid/discussions) |
 | **Security** | Report vulnerabilities privately via email |
 
 > [!TIP]
@@ -1944,17 +1944,17 @@ limitations under the License.
 
 ## ▸ Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=aegisdroid/aegisdroid&type=Date)](https://star-history.com/#aegisdroid/aegisdroid&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=0xhroot/aegisdroid&type=Date)](https://star-history.com/#0xhroot/aegisdroid&Date)
 
 ---
 
 ## ▸ Contributors
 
 <!-- PLACEHOLDER: Add contributors image -->
-<!-- [![Contributors](https://contrib.rocks/image?repo=aegisdroid/aegisdroid)](https://github.com/aegisdroid/aegisdroid/graphs/contributors) -->
+<!-- [![Contributors](https://contrib.rocks/image?repo=0xhroot/aegisdroid)](https://github.com/0xhroot/aegisdroid/graphs/contributors) -->
 
-<a href="https://github.com/aegisdroid/aegisdroid/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=aegisdroid/aegisdroid" />
+<a href="https://github.com/0xhroot/aegisdroid/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=0xhroot/aegisdroid" />
 </a>
 
 ---

@@ -89,12 +89,12 @@ aegis = "aegisdroid.cli.menu:main"
 aegisdroid = "aegisdroid.cli.menu:main"
 
 [project.urls]
-Homepage = "https://github.com/aegisdroid/aegisdroid"
-Documentation = "https://github.com/aegisdroid/aegisdroid#readme"
-Repository = "https://github.com/aegisdroid/aegisdroid"
-Issues = "https://github.com/aegisdroid/aegisdroid/issues"
-Changelog = "https://github.com/aegisdroid/aegisdroid/blob/main/CHANGELOG.md"
-Security = "https://github.com/aegisdroid/aegisdroid/blob/main/SECURITY.md"
+Homepage = "https://github.com/0xhroot/aegisdroid"
+Documentation = "https://github.com/0xhroot/aegisdroid#readme"
+Repository = "https://github.com/0xhroot/aegisdroid"
+Issues = "https://github.com/0xhroot/aegisdroid/issues"
+Changelog = "https://github.com/0xhroot/aegisdroid/blob/main/CHANGELOG.md"
+Security = "https://github.com/0xhroot/aegisdroid/blob/main/SECURITY.md"
 
 [project.entry-points."aegisdroid.plugins"]
 # Plugins register here via entry points

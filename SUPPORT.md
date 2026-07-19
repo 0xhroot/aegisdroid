@@ -7,8 +7,8 @@
 | **Documentation** | [README](README.md) | Getting started, features, usage |
 | **FAQ** | [FAQ](README.md#frequently-asked-questions) | Common questions and answers |
 | **Troubleshooting** | [Troubleshooting](README.md#troubleshooting) | Solving common issues |
-| **GitHub Issues** | [Issues](https://github.com/aegisdroid/aegisdroid/issues) | Bug reports, feature requests |
-| **GitHub Discussions** | [Discussions](https://github.com/aegisdroid/aegisdroid/discussions) | Questions, ideas, community |
+| **GitHub Issues** | [Issues](https://github.com/0xhroot/aegisdroid/issues) | Bug reports, feature requests |
+| **GitHub Discussions** | [Discussions](https://github.com/0xhroot/aegisdroid/discussions) | Questions, ideas, community |
 
 ## Before Asking for Help
 

@@ -62,5 +62,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ADB adapter
 - Domain models
 
-[1.0.0]: https://github.com/aegisdroid/aegisdroid/compare/v0.1.0...v1.0.0
-[0.1.0]: https://github.com/aegisdroid/aegisdroid/releases/tag/v0.1.0
+[1.0.0]: https://github.com/0xhroot/aegisdroid/compare/v0.1.0...v1.0.0
+[0.1.0]: https://github.com/0xhroot/aegisdroid/releases/tag/v0.1.0
